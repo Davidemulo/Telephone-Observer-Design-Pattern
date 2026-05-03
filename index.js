@@ -2,6 +2,18 @@ class Observer {
   notify(phoneNumber) {}
 }
 
+class PrintPhoneNumberObserver extends Observer {
+  notify(phoneNumber) {
+    console.log(phoneNumber);
+  }
+}
+
+class DialMessageObserver extends Observer {
+  notify(phoneNumber) {
+    console.log(`Now Dialling ${phoneNumber}`);
+  }
+}
+
 class Telephone {
   constructor() {
     this.phoneNumbers = [];
@@ -13,7 +25,9 @@ class Telephone {
   }
 
   RemovePhoneNumber(number) {
-    this.phoneNumbers = this.phoneNumbers.filter(num => num !== number);
+    this.phoneNumbers = this.phoneNumbers.filter(
+      (num) => num !== number
+    );
   }
 
   addObserver(observer) {
@@ -21,7 +35,9 @@ class Telephone {
   }
 
   removeObserver(observer) {
-    this.observers = this.observers.filter(obs => obs !== observer);
+    this.observers = this.observers.filter(
+      (obs) => obs !== observer
+    );
   }
 
   notifyObservers(number) {
@@ -38,19 +54,16 @@ class Telephone {
 
     this.notifyObservers(number);
   }
-
-  class Observer {
-  notify(phoneNumber) {}
 }
 
-class PrintPhoneNumberObserver extends Observer {
-  notify(phoneNumber) {
-    console.log(phoneNumber);
-  }
-}
+// TEST
+const telephone = new Telephone();
 
-class DialMessageObserver extends Observer {
-  notify(phoneNumber) {
-    console.log(`Now Dialling ${phoneNumber}`);
-  }
-}
+const observer1 = new PrintPhoneNumberObserver();
+const observer2 = new DialMessageObserver();
+
+telephone.addObserver(observer1);
+telephone.addObserver(observer2);
+
+telephone.AddPhoneNumber("+2349031824914");
+telephone.DialPhoneNumber("+2349031824914");
