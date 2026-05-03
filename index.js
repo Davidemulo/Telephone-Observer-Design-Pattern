@@ -38,3 +38,19 @@ class Telephone {
 
     this.notifyObservers(number);
   }
+
+  class Observer {
+  notify(phoneNumber) {}
+}
+
+class PrintPhoneNumberObserver extends Observer {
+  notify(phoneNumber) {
+    console.log(phoneNumber);
+  }
+}
+
+class DialMessageObserver extends Observer {
+  notify(phoneNumber) {
+    console.log(`Now Dialling ${phoneNumber}`);
+  }
+}
