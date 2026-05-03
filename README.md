@@ -35,6 +35,7 @@ In this project:
 ## Project Structure
 
 Telephone
+Telephone
 ├── phoneNumbers (Array)
 ├── observers (Array)
 ├── AddPhoneNumber()
