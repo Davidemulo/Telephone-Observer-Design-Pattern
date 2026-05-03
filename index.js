@@ -1,25 +1,40 @@
-function Telephone() {
-  this.phoneNumbers = [];
-  this.observers = [];
+class Observer {
+  notify(phoneNumber) {}
 }
 
-function Telephone() {
-  this.phoneNumbers = [];
-  this.observers = [];
+class Telephone {
+  constructor() {
+    this.phoneNumbers = [];
+    this.observers = [];
+  }
 
-  this.AddPhoneNumber = function(number) {
+  AddPhoneNumber(number) {
     this.phoneNumbers.push(number);
-  };
-}
+  }
 
-this.RemovePhoneNumber = function(number) {
-  this.phoneNumbers = this.phoneNumbers.filter(num => num !== number);
-};
+  RemovePhoneNumber(number) {
+    this.phoneNumbers = this.phoneNumbers.filter(num => num !== number);
+  }
 
-this.addObserver = function(observer) {
-  this.observers.push(observer);
-};
+  addObserver(observer) {
+    this.observers.push(observer);
+  }
 
-this.removeObserver = function(observer) {
-  this.observers = this.observers.filter(obs => obs !== observer);
-};
+  removeObserver(observer) {
+    this.observers = this.observers.filter(obs => obs !== observer);
+  }
+
+  notifyObservers(number) {
+    for (const observer of this.observers) {
+      observer.notify(number);
+    }
+  }
+
+  DialPhoneNumber(number) {
+    if (!this.phoneNumbers.includes(number)) {
+      console.log("Phone number not found");
+      return;
+    }
+
+    this.notifyObservers(number);
+  }
