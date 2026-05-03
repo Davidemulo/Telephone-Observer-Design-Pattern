@@ -34,7 +34,7 @@ In this project:
 
 ## Project Structure
 
-```
+```text
 Telephone
 ├── phoneNumbers (Array)
 ├── observers (Array)
@@ -54,9 +54,11 @@ Telephone
 Prints the phone number when notified.
 
 ### 2. DialMessageObserver
-Prints a message:
+Prints a message when a number is dialed:
 
+```text
 Now Dialling <phoneNumber>
+```
 
 ---
 
@@ -64,16 +66,27 @@ Now Dialling <phoneNumber>
 
 ### 1. Clone repository
 
+```bash
 git clone https://github.com/Davidemulo/Telephone-Observer-Design-Pattern
+```
 
-### 2. Run file using Node.js
+### 2. Navigate into project
 
+```bash
+cd Telephone-Observer-Design-Pattern
+```
+
+### 3. Run file using Node.js
+
+```bash
 node index.js
+```
 
 ---
 
 ## Example Usage
-```
+
+```javascript
 const telephone = new Telephone();
 
 const observer1 = new PrintPhoneNumberObserver();
@@ -85,9 +98,12 @@ telephone.addObserver(observer2);
 telephone.AddPhoneNumber("+2349031824914");
 telephone.DialPhoneNumber("+2349031824914");
 ```
+
 ---
 
 ## Expected Output
 
+```text
 +2349031824914  
 Now Dialling +2349031824914
+```
