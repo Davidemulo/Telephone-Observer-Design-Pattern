@@ -34,7 +34,7 @@ In this project:
 
 ## Project Structure
 
-Telephone
+```
 Telephone
 ├── phoneNumbers (Array)
 ├── observers (Array)
@@ -44,6 +44,7 @@ Telephone
 ├── removeObserver()
 ├── notifyObservers()
 └── DialPhoneNumber()
+```
 
 ---
 
@@ -72,7 +73,7 @@ node index.js
 ---
 
 ## Example Usage
-
+```
 const telephone = new Telephone();
 
 const observer1 = new PrintPhoneNumberObserver();
@@ -83,7 +84,7 @@ telephone.addObserver(observer2);
 
 telephone.AddPhoneNumber("+2349031824914");
 telephone.DialPhoneNumber("+2349031824914");
-
+```
 ---
 
 ## Expected Output
